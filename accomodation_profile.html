@@ -114,7 +114,7 @@
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
                                 <img src="assets/img/room1.jpg" alt="">
-                                <a href="#" class="btn theme_btn button_hover"onclick="alertme()">Request</a>
+                                <a href="#" id="myBtn1" class="btn theme_btn button_hover"onclick="alertme('btn1')">Request</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Double Room in Manor House</h4></a>
                             <a href="#"><h4 class="sec_h4">Host: Owain Osborne</h4></a>
@@ -127,7 +127,7 @@
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
                                 <img src="assets/img/room2.jpg" alt="">
-                                <a href="#" class="btn theme_btn button_hover"onclick="alertme()">Request</a>
+                                <a href="#" id="myBtn2" class="btn theme_btn button_hover"onclick="alertme('btn2')">Request</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Single Room in Liverpool Street</h4></a>
                             <a href="#"><h4 class="sec_h4">Host: John Mollocks</h4></a>
@@ -137,7 +137,80 @@
                         </div>
                     </div>
         </section>
+                	<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			  <div class="top-header">
+				<span class="header-text">Request</span>
+				<span class="close" onclick="close()">&times;</span>
+			  </div>
+			  <span class="bi bi-check-circle check-icon"></span>
+			  <p id="modal-text"></p>
+			  <div class="okBtn">
+			   <button class="btn btn-warning ok-btn" style="min-width: 100px;color: #fff;">OK</button>
+			  </div>
+		  </div>
+
+		</div>
+
+</div>
+
         <script>
+			// Get the modal
+			var modal = document.getElementById("myModal");
+
+            function alertme(id) {
+				modal.style.display = "block";
+				
+				//If you need dynamic msgs for each btn keep below code -
+				<!-- var element = document.getElementById('modal-text'); -->
+				
+				<!-- if(id === 'btn1'){ -->
+					<!-- element.innerHTML = "btn 1 msg"; -->
+
+				<!-- }else if(id === 'btn2'){ -->
+					<!-- element.innerHTML = "btn 2 msg"; -->
+
+				<!-- }else if(id === 'btn3'){ -->
+					<!-- element.innerHTML = "btn 3 msg"; -->
+
+				<!-- }else{ -->
+					<!-- element.innerHTML = "btn 4 msg"; -->
+
+				<!-- } -->
+				
+				//If you need static msgs for all btn keep below code -
+				var element = document.getElementById('modal-text');
+				element.innerHTML = "Thank You! Request has been successfully sent to the host";
+            }
+			
+			
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			var spanOk = document.getElementsByClassName("ok-btn")[0];
+			
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+			
+			spanOk.onclick = function() {
+			  modal.style.display = "none";
+			}
+
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+				modal.style.display = "none";
+			  }
+			}
+
+        </script>
+       <!-- <script>
           function alertme() {
               alert("Your request was successful");
           }
